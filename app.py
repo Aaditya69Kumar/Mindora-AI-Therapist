@@ -1,60 +1,45 @@
 import streamlit as st
 import requests
 
-# =========================
-# CONFIG
-# =========================
+
 BACKEND_URL = "http://localhost:8000/ask"
 
-# =========================
-# PAGE SETTINGS
-# =========================
+
 st.set_page_config(
     page_title="Mindora AI Therapist",
-    page_icon="🧠",
+    page_icon=" ",
     layout="wide"
 )
 
-# =========================
-# HEADER
-# =========================
-st.title("🧠 Mindora – AI Mental Health Therapist")
+
+st.title(" Mindora – AI Mental Health Therapist")
 
 st.sidebar.header("About")
 st.sidebar.info(
     """
     Mindora is an AI-powered mental health support assistant.
 
-    ⚠️ This application is NOT a substitute for licensed
+     This application is NOT a substitute for licensed
     mental health professionals, emergency services,
     or medical advice.
     """
 )
 
-# =========================
-# SESSION STATE
-# =========================
 if "chat_history" not in st.session_state:
     st.session_state.chat_history = []
 
-# =========================
-# DISPLAY OLD CHAT
-# =========================
+
 for message in st.session_state.chat_history:
 
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
 
-# =========================
-# CHAT INPUT
-# =========================
+
 user_input = st.chat_input(
     "What's on your mind today?"
 )
 
-# =========================
-# PROCESS USER MESSAGE
-# =========================
+
 if user_input:
 
     # Show user message immediately
@@ -111,7 +96,7 @@ if user_input:
             except requests.exceptions.ConnectionError:
 
                 assistant_reply = (
-                    "❌ Could not connect to backend.\n\n"
+                    " Could not connect to backend.\n\n"
                     "Make sure FastAPI is running:\n\n"
                     "uv run backend/main.py"
                 )
@@ -119,7 +104,7 @@ if user_input:
             except requests.exceptions.Timeout:
 
                 assistant_reply = (
-                    "⏳ Request timed out.\n\n"
+                    " Request timed out.\n\n"
                     "The model may still be loading."
                 )
 
@@ -139,9 +124,7 @@ if user_input:
         }
     )
 
-# =========================
-# CLEAR CHAT BUTTON
-# =========================
+
 st.sidebar.divider()
 
 if st.sidebar.button("🗑️ Clear Chat"):
