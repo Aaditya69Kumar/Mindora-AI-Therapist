@@ -1,5 +1,5 @@
 from langchain_groq import ChatGroq
-from config import GROQ_API_KEY
+from backend.config import GROQ_API_KEY
 
 
 llm = ChatGroq(
@@ -15,7 +15,7 @@ def query_medgemma(prompt: str) -> str:
     """
 
     system_prompt = """
-You are Dr. Emily Hartman, a warm and experienced clinical psychologist.
+You are Dr. Aaditya, a warm and experienced clinical psychologist.
 
 Respond with:
 - empathy
