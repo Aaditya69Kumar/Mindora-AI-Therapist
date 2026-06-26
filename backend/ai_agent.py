@@ -5,8 +5,8 @@ from langgraph.prebuilt import create_react_agent
 from geopy.geocoders import Nominatim
 import requests
 
-from tools import query_medgemma
-from config import GROQ_API_KEY
+from backend.tools import query_medgemma
+from backend.config import GROQ_API_KEY
 
 
 geolocator = Nominatim(user_agent="ai_therapist")
