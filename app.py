@@ -2,7 +2,7 @@ import streamlit as st
 import requests
 
 
-BACKEND_URL = "http://localhost:8000/ask"
+BACKEND_URL = "https://mindora-ai-therapist-zf4x.onrender.com/ask"
 
 
 st.set_page_config(
